@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Students Corner</string>
+    <string name="powered_by">Powered By EugeneDevv</string>
+    <string name="app_tittle">UOE Students Corner</string>
+    <string name="lets_get_started">LETS GET STARTED</string>
+
+    <!--    Strings for OnBoarding-->
+    <string name="first_slide_title">ANNOUNCEMENTS</string>
+    <string name="second_slide_title">CONTACTS</string>
+    <string name="third_slide_title">LOST &amp; FOUND</string>
+    <string name="fourth_slide_title">ÇAMPUS BUZZ</string>
+
+    <string name="first_slide_desc">Get updated with the most important announcements from the school Administration and various faculties and
+        departments.</string>
+    <string name="second_slide_desc">You can access emergency contacts for the school ambulance and security office. In addiction are lecturers\'
+and student leaders contacts.</string>
+    <string name="third_slide_desc">You can post any misplaced item or property that you come across, ranging from school IDs, exam cards, national IDs,
+        bags, electronic gadgets, e.t.c... You can also claim anything from the list that is yours or you know of the owner.</string>
+    <string name="fourth_slide_desc">Catch the latest and trending campus news, gossips and drama in this section. </string>
+    <string name="skip_btn">SKIP</string>
+    <string name="search_contacts">Search Contacts</string>
+    <string name="school_map">School Map</string>
+    <string name="school_website">School Website</string>
+    <string name="student_portal">Student Portal</string>
+    <string name="recent_announcements_recent">Recent</string>
+    <string name="recent_announcements_announcements">Announcements</string>
+    <string name="recent_announcements_desc">All the announcements and internal memos released by the school over the past one month.</string>
+    <string name="campus_buzz_most_viewed">CAMPUS BUZZ - Most Viewed</string>
+    <string name="view_all">View All</string>
+    <string name="clubs_sports"><![CDATA[CLUBS & SOCIETIES]]></string>
+    <string name="upcoming_events">Upcoming Events...</string>
+    <string name="home">HOME</string>
+    <string name="announcements">ANNOUNCEMENTS</string>
+    <string name="lost_found"><![CDATA[LOST & FOUND]]></string>
+    <string name="my_profile">MY PROFILE</string>
+    <string name="log_in">LOG IN</string>
+    <string name="log_out">LOG OUT</string>
+    <string name="app_slogan">Bringing information into your palms</string>
+    <string name="contacts">CONTACTS</string>
+    <string name="emergency">Emergency</string>
+    <string name="sign_up">SIGN UP</string>
+    <string name="enter_adm_number">Enter Admission No.</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="remember_me">Remember Me</string>
+    <string name="forget_password">FORGET PASSWORD</string>
+    <string name="create_account">CREATE ACCOUNT</string>
+    <string name="create_account_2">Create\nAccount</string>
+    <string name="full_name">Full Name</string>
+    <string name="admission_no">Admission No.</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="next">next</string>
+    <string name="code">Co\nde</string>
+    <string name="verification">VERIFICATION</string>
+    <string name="forgot_password_desc">Provide your account\'s Email for whcich you want to reset password!</string>
+    <string name="make_selection_desc">Select which contact detail should we use to reset your password?</string>
+    <string name="new_password">new\npassword</string>
+    <string name="new_password_detail">Your identity has been confirmed! \n Set your new password</string>
+    <string name="password_updated">Password \n Updated</string>
+    <string name="password_updated_detail">Your password has been updated successfully!</string>
+</resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Common.LoginSignUp.VerifyOTP"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/close_icon"
+        android:padding="5dp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/code"
+                android:fontFamily="@font/brandon_grotesque_bold"
+                android:textAllCaps="true"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="70sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/verification"
+                android:fontFamily="@font/brandon_grotesque_bold"
+                android:textAllCaps="true"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="24sp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="Enter the verification code sent to your phone number."
+                android:fontFamily="@font/brandon_grotesque_medium"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"/>
+            <com.chaos.view.PinView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:itemCount="6"
+                app:itemWidth="40dp"
+                app:itemHeight="40dp"
+                android:layout_marginTop="30dp"
+                app:lineColor="@color/colorAccent"
+                android:background="@color/whiteColor"
+                style="@style/PinWidget.PinView"
+                android:cursorVisible="true"
+                app:cursorColor="@color/colorAccent"
+                app:hideLineWhenFilled="true"
+                app:itemRadius="5dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="verify code"
+                android:onClick="verifyCallNextSignUpScreen"
+                android:background="@color/colorPrimaryDark"
+                android:layout_marginTop="30dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

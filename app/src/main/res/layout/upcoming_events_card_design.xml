@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="2dp"
+    android:layout_margin="5dp"
+    app:cardElevation="8dp">
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/upcoming_events_image"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:src="@drawable/announcements"
+            android:layout_alignParentRight="true"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/upcoming_events_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:layout_alignParentLeft="true"
+            android:text="What you didnt know about Mr. UOE"
+            android:layout_toLeftOf="@+id/upcoming_events_image"
+            android:fontFamily="@font/brandon_grotesque_bold"
+            android:textSize="20sp"/>
+        <TextView
+            android:id="@+id/upcoming_events_desc_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sdfg sdfgh dfghjk dfghjk dfghjkl sdfghjk dfghj cvbnm fghj cvbn dfghj fghj "
+            android:layout_below="@id/upcoming_events_title_tv"
+            android:fontFamily="@font/brandon_grotesque_regular"
+            android:layout_toLeftOf="@id/upcoming_events_image"
+            android:layout_alignParentLeft="true"/>
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

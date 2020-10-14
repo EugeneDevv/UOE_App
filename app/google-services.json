@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "708145071617",
+    "firebase_url": "https://uoe-app.firebaseio.com",
+    "project_id": "uoe-app",
+    "storage_bucket": "uoe-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708145071617:android:824b5ffc77fae650056200",
+        "android_client_info": {
+          "package_name": "com.eujoh.uoeapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "708145071617-6ldqqer3oobt5jv1htik4lfrkijnqa4q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAV3ClxropDgQFdEdbB2-dl8BfJBIOS-bU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "708145071617-6ldqqer3oobt5jv1htik4lfrkijnqa4q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/nav_drawer_home"
+            android:title="@string/home"
+            android:icon="@drawable/dashboard_icon"/>
+        <item
+            android:id="@+id/nav_drawer_announcements"
+            android:title="@string/announcements"
+            android:icon="@drawable/dashboard_icon"/>
+
+        <item
+            android:id="@+id/nav_drawer_lost_found"
+            android:title="@string/lost_found"
+            android:icon="@drawable/dashboard_icon"/>
+
+        <item
+            android:id="@+id/nav_drawer_contacts"
+            android:title="@string/contacts"
+            android:icon="@drawable/dashboard_icon"/>
+    </group>
+    <item android:title="Profile">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_drawer_log_in"
+                    android:title="@string/log_in"
+                    android:icon="@drawable/dashboard_icon"/>
+                <item
+                    android:id="@+id/nav_drawer_my_profile"
+                    android:title="@string/my_profile"
+                    android:icon="@drawable/dashboard_icon"/>
+                <item
+                    android:id="@+id/nav_drawer_log_out"
+                    android:title="@string/log_out"
+                    android:icon="@drawable/dashboard_icon"/>
+            </group>
+        </menu>
+    </item>
+    <item android:title="Share">
+        <menu>
+            <group android:checkableBehavior="none">
+                <item
+                    android:id="@+id/nav_drawe_share"
+                    android:title="Share"
+                    android:icon="@drawable/dashboard_icon"/>
+                <item
+                    android:id="@+id/nav_drawer_rate_us"
+                    android:title="Rate Us"
+                    android:icon="@drawable/dashboard_icon"/>
+            </group>
+        </menu>
+    </item>
+</menu>

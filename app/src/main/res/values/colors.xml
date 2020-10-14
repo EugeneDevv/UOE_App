@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#733C31</color>
+    <color name="colorPrimaryDark">#E5B554</color>
+    <color name="colorAccent">#252525</color>
+    <color name="whiteDark">#C6FFFFFF</color>
+    <color name="blueTeal">#13A9E9</color>
+    <color name="red">#F70505</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="cream_chep">#E5B554</color>
+    <color name="buttonColor">#AC3D26</color>
+    <color name="brown_chep">#733C31</color>
+    <color name="whiteColor">#FFFFFF</color>
+    <color name="emeralGreen">#25D690</color>
+    <color name="grey">#A2A2A3</color>
+    <color name="light_grey">#F2E4E0EA</color>
+
+<!--    Dashboard Colors-->
+    <color name="banner_background">#F1D8D2</color>
+    <color name="banner_background_light">#F1E6E3</color>
+
+    <color name="card1">#F1D499</color>
+    <color name="card2">#E4A194</color>
+    <color name="card3">#8997C3</color>
+</resources>
