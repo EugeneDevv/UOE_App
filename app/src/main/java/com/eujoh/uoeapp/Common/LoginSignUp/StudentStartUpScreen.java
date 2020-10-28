@@ -39,4 +39,8 @@ public class StudentStartUpScreen extends AppCompatActivity {
         ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(StudentStartUpScreen.this,pairs);
         startActivity(intent,options.toBundle());
     }
+
+    public void callDisclaimerScreen(View view) {
+        startActivity(new Intent(this, Disclaimer.class));
+    }
 }

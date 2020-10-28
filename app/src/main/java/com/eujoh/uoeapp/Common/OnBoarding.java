@@ -14,6 +14,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.eujoh.uoeapp.Common.LoginSignUp.StudentStartUpScreen;
 import com.eujoh.uoeapp.HelperClasses.SliderAdapter;
 import com.eujoh.uoeapp.R;
 import com.eujoh.uoeapp.User.UserDashboard;
@@ -48,7 +49,7 @@ public class OnBoarding extends AppCompatActivity {
     }
 
     public void skip(View view){
-        startActivity(new Intent(this, UserDashboard.class));
+        startActivity(new Intent(this, StudentStartUpScreen.class));
         finish();
     }
     public void next(View view){

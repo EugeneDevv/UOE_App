@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.eujoh.uoeapp.Common.LoginSignUp.Login;
 import com.eujoh.uoeapp.R;
 import com.eujoh.uoeapp.User.UserDashboard;
 
@@ -68,7 +69,7 @@ public class SplashScreen extends AppCompatActivity {
                     startActivity(intent);
                     finish();
                 } else {
-                    Intent intent = new Intent(getApplicationContext(), UserDashboard.class);
+                    Intent intent = new Intent(getApplicationContext(), Login.class);
                     startActivity(intent);
                     finish();
                 }
