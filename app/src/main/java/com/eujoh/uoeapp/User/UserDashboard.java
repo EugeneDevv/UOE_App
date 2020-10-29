@@ -16,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.eujoh.uoeapp.Common.LoginSignUp.Login;
 import com.eujoh.uoeapp.Common.LoginSignUp.StudentStartUpScreen;
 import com.eujoh.uoeapp.HelperClasses.HomeAdapter.CampusBuzzMvAdapter;
 import com.eujoh.uoeapp.HelperClasses.HomeAdapter.CampusBuzzMvHelperClass;
@@ -27,6 +28,7 @@ import com.eujoh.uoeapp.HelperClasses.HomeAdapter.UpcomingEventsAdapter;
 import com.eujoh.uoeapp.HelperClasses.HomeAdapter.UpcomingEventsHelperClass;
 import com.eujoh.uoeapp.R;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -128,6 +130,11 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
                 break;
             case R.id.nav_drawer_lost_found:
                 startActivity(new Intent(this,LostFound.class));
+                break;
+            case R.id.nav_drawer_log_out:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(this, Login.class));
+                finish();
         }
         return true;
     }

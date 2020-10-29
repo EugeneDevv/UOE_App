@@ -25,12 +25,16 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUp extends AppCompatActivity {
 
     //Variables
     private FirebaseAuth mAuth;
+    private DatabaseReference databaseReference;
+    private FirebaseUser firebaseUser;
 
     ImageView backBtn;
     Button nextBtn, loginBtn;
@@ -56,6 +60,9 @@ public class SignUp extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
 
         mAuth = FirebaseAuth.getInstance();
+//        firebaseUser = mAuth.getCurrentUser();
+//            databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
     }
 
     public void callNextSignUpScreen(View view) {
@@ -118,13 +125,34 @@ public class SignUp extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
-                        Toast.makeText(getApplicationContext(), "Registered successfully", Toast.LENGTH_SHORT).show();
-                        progressBar.setVisibility(View.GONE);
-                        startActivity(new Intent(getApplicationContext(), UserDashboard.class));
-                        finish();
-                    } else {
-                        Toast.makeText(getApplicationContext(), "Failed to register! Try again!", Toast.LENGTH_LONG).show();
-                        progressBar.setVisibility(View.GONE);
+                        User user = new User(fullName, admNumber, userEmail);
+                        FirebaseDatabase.getInstance().getReference("Users")
+                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()){
+                                    Toast.makeText(getApplicationContext(), "Registered successfully", Toast.LENGTH_SHORT).show();
+                                    progressBar.setVisibility(View.GONE);
+
+                                    //request to phone number
+                                    Intent intent = new Intent(getApplicationContext(),SignUp2ndClass.class);
+
+                                    //Add Transition
+                                    Pair[] pairs = new Pair[4];
+                                    pairs[0] = new Pair<View,String>(backBtn,"transition_back_arrow_btn");
+                                    pairs[1] = new Pair<View,String>(nextBtn,"transition_next_btn");
+                                    pairs[2] = new Pair<View,String>(loginBtn,"transition_login_btn");
+                                    pairs[3] = new Pair<View,String>(titleText,"transition_title_txt");
+
+                                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp.this,pairs);
+                                    startActivity(intent,options.toBundle());
+                                } else {
+                                    Toast.makeText(getApplicationContext(), "Failed to register! Try again!", Toast.LENGTH_LONG).show();
+                                    progressBar.setVisibility(View.GONE);
+                                }
+                            }
+                        });
                     }
                 }
             });
