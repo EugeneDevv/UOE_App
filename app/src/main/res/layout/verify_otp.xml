@@ -49,6 +49,7 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="18sp"/>
             <com.chaos.view.PinView
+                android:id="@+id/pinview_otp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:itemCount="6"
@@ -63,12 +64,21 @@
                 app:hideLineWhenFilled="true"
                 app:itemRadius="5dp"/>
             <Button
+                android:id="@+id/verify_otp_btn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="verify code"
                 android:onClick="verifyCallNextSignUpScreen"
                 android:background="@color/colorPrimaryDark"
                 android:layout_marginTop="30dp" />
+
+            <ProgressBar
+                android:id="@+id/progressBar2"
+                style="?android:attr/progressBarStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="30dp"
+                android:visibility="invisible"/>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

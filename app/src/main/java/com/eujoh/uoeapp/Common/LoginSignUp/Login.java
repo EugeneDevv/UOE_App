@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ public class Login extends AppCompatActivity {
     TextInputEditText email, password;
     ProgressBar progressBar;
     FirebaseAuth mAuth;
+    Button loginBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.ed_password_login);
         email = findViewById(R.id.ed_email_login);
         progressBar = findViewById(R.id.progressBar);
+        loginBtn = findViewById(R.id.login_button);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -46,37 +49,40 @@ public class Login extends AppCompatActivity {
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(i);
         }
+        loginBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginUser();
+//                finish();
+            }
+        });
     }
 
     public void callForgetPassword(View view) {
         startActivity(new Intent(this, ForgetPassword.class));
     }
 
-    public void callUserDashBoard(View view) {
-        loginUser();
-        finish();
-    }
 
     private void loginUser() {
         final String userEmail = email.getText().toString().trim().toLowerCase();
         String userPassword = password.getText().toString().trim();
 
         if (TextUtils.isEmpty(userEmail)) {
-            email.setError("Password doesn't match");
+            email.setError("Field cannot be empty");
             email.requestFocus();
-            return;
+
         } else if (!Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()) {
-            email.setError("Password doesn't match");
+            email.setError("Enter a valid email");
             email.requestFocus();
-            return;
+//            return;
         } else if (TextUtils.isEmpty(userPassword)) {
-            password.setError("Password doesn't match");
+            password.setError("Field cannot be empty");
             password.requestFocus();
-            return;
+//            return;
         } else if (userPassword.length() < 6) {
-            password.setError("Password doesn't match");
+            password.setError("Password is at least 6 characters");
             password.requestFocus();
-            return;
+//            return;
         } else {
             progressBar.setVisibility(View.VISIBLE);
             mAuth.signInWithEmailAndPassword(userEmail, userPassword).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {

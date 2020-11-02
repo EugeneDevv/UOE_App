@@ -39,7 +39,7 @@ public class SignUp extends AppCompatActivity {
     ImageView backBtn;
     Button nextBtn, loginBtn;
     TextView titleText;
-    TextInputEditText full_name, email, adm_number, password, confirm_password;
+    TextInputEditText full_name, email, adm_number, password, phoneNumber;
     ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +56,11 @@ public class SignUp extends AppCompatActivity {
         email = findViewById(R.id.ed_email);
         adm_number = findViewById(R.id.ed_adm_number);
         password = findViewById(R.id.ed_pass);
-        confirm_password = findViewById(R.id.ed_confirm_pass);
+        phoneNumber = findViewById(R.id.ed_phone);
         progressBar = findViewById(R.id.progressBar);
 
         mAuth = FirebaseAuth.getInstance();
+        databaseReference = FirebaseDatabase.getInstance().getReference("uploads");
 //        firebaseUser = mAuth.getCurrentUser();
 //            databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
 
@@ -67,28 +68,28 @@ public class SignUp extends AppCompatActivity {
 
     public void callNextSignUpScreen(View view) {
         registerUser();
-        Intent intent = new Intent(this,SignUp2ndClass.class);
-
-        //Add Transition
-        Pair[] pairs = new Pair[4];
-        pairs[0] = new Pair<View,String>(backBtn,"transition_back_arrow_btn");
-        pairs[1] = new Pair<View,String>(nextBtn,"transition_next_btn");
-        pairs[2] = new Pair<View,String>(loginBtn,"transition_login_btn");
-        pairs[3] = new Pair<View,String>(titleText,"transition_title_txt");
-
-        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp.this,pairs);
-        startActivity(intent,options.toBundle());
+//        Intent intent = new Intent(this,SignUp2ndClass.class);
+//
+//        //Add Transition
+//        Pair[] pairs = new Pair[4];
+//        pairs[0] = new Pair<View,String>(backBtn,"transition_back_arrow_btn");
+//        pairs[1] = new Pair<View,String>(nextBtn,"transition_next_btn");
+//        pairs[2] = new Pair<View,String>(loginBtn,"transition_login_btn");
+//        pairs[3] = new Pair<View,String>(titleText,"transition_title_txt");
+//
+//        ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp.this,pairs);
+//        startActivity(intent,options.toBundle());
     }
 
     private void registerUser(){
         final String fullName = full_name.getText().toString().trim().toUpperCase();
         final String admNumber = adm_number.getText().toString().trim().toUpperCase();
         final String userEmail = email.getText().toString().trim().toLowerCase();
-        String userPassword = password.getText().toString().trim();
-        String confirmPassword = confirm_password.getText().toString().trim();
+        final String userPassword = password.getText().toString().trim();
+        final String phoneNo = phoneNumber.getText().toString().trim();
 
         if (TextUtils.isEmpty(fullName)){
-            full_name.setError("Password doesn't match");
+            full_name.setError("Name is required");
             full_name.requestFocus();
             return;
         } else if (TextUtils.isEmpty(admNumber)){
@@ -96,36 +97,37 @@ public class SignUp extends AppCompatActivity {
             adm_number.requestFocus();
             return;
         } else if (TextUtils.isEmpty(userEmail)){
-            email.setError("Password doesn't match");
+            email.setError("Email is required");
             email.requestFocus();
             return;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()){
-            email.setError("Password doesn't match");
+            email.setError("Not a valid email");
             email.requestFocus();
             return;
         } else if (TextUtils.isEmpty(userPassword)){
-            password.setError("Password doesn't match");
+            password.setError("Password cannot be empty");
             password.requestFocus();
             return;
         } else if (userPassword.length() < 6){
-            password.setError("Password doesn't match");
+            password.setError("Weak password!");
             password.requestFocus();
              return;
-        } else if (TextUtils.isEmpty(confirmPassword)){
-            confirm_password.setError("Password doesn't match");
-            confirm_password.requestFocus();
+        } else if (TextUtils.isEmpty(phoneNo)){
+            phoneNumber.setError("Enter phone Number");
+            phoneNumber.requestFocus();
             return;
-        } else if (!userPassword.equals(confirmPassword)){
-            confirm_password.setError("Password doesn't match");
-            confirm_password.requestFocus();
+        } else if (phoneNo.length() != 9 ){
+            phoneNumber.setError("Enter valid phone number");
+            phoneNumber.requestFocus();
             return;
         } else {
+//            final String phoneNofinal = phoneNo;
             progressBar.setVisibility(View.VISIBLE);
             mAuth.createUserWithEmailAndPassword(userEmail, userPassword).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
-                        User user = new User(fullName, admNumber, userEmail);
+                        User user = new User(fullName, admNumber, userEmail, phoneNo);
                         FirebaseDatabase.getInstance().getReference("Users")
                                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                 .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -136,17 +138,17 @@ public class SignUp extends AppCompatActivity {
                                     progressBar.setVisibility(View.GONE);
 
                                     //request to phone number
-                                    Intent intent = new Intent(getApplicationContext(),SignUp2ndClass.class);
+                                    Intent intent = new Intent(getApplicationContext(),UserDashboard.class);
+//                                    intent.putExtra("phoneNo", phoneNo);
+//                                    //Add Transition
+//                                    Pair[] pairs = new Pair[4];
+//                                    pairs[0] = new Pair<View,String>(backBtn,"transition_back_arrow_btn");
+//                                    pairs[1] = new Pair<View,String>(nextBtn,"transition_next_btn");
+//                                    pairs[2] = new Pair<View,String>(loginBtn,"transition_login_btn");
+//                                    pairs[3] = new Pair<View,String>(titleText,"transition_title_txt");
 
-                                    //Add Transition
-                                    Pair[] pairs = new Pair[4];
-                                    pairs[0] = new Pair<View,String>(backBtn,"transition_back_arrow_btn");
-                                    pairs[1] = new Pair<View,String>(nextBtn,"transition_next_btn");
-                                    pairs[2] = new Pair<View,String>(loginBtn,"transition_login_btn");
-                                    pairs[3] = new Pair<View,String>(titleText,"transition_title_txt");
-
-                                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp.this,pairs);
-                                    startActivity(intent,options.toBundle());
+//                                    ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(SignUp.this,pairs);
+                                    startActivity(intent);
                                 } else {
                                     Toast.makeText(getApplicationContext(), "Failed to register! Try again!", Toast.LENGTH_LONG).show();
                                     progressBar.setVisibility(View.GONE);

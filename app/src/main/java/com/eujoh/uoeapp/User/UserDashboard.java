@@ -2,12 +2,15 @@ package com.eujoh.uoeapp.User;
 
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.eujoh.uoeapp.Common.LoginSignUp.Login;
 import com.eujoh.uoeapp.Common.LoginSignUp.StudentStartUpScreen;
+import com.eujoh.uoeapp.Common.LoginSignUp.User;
 import com.eujoh.uoeapp.HelperClasses.HomeAdapter.CampusBuzzMvAdapter;
 import com.eujoh.uoeapp.HelperClasses.HomeAdapter.CampusBuzzMvHelperClass;
 import com.eujoh.uoeapp.HelperClasses.HomeAdapter.ClubsSocietiesAdapter;
@@ -40,7 +44,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     RecyclerView recentAnnouncementsRecycler, campusBuzzMvRecycler, clubsSocietiesRecycler, upcomingEventsRecycler;
     RecyclerView.Adapter adapter;
     private GradientDrawable gradient1, gradient2, getGradient3, getGradient4;
-    ImageView drawerMenuIcon;
+    ImageView drawerMenuIcon, menuPop;
     LinearLayout contentView;
 
     //Drawer Menu
@@ -60,6 +64,7 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         upcomingEventsRecycler = findViewById(R.id.upcoming_events_recycler);
         drawerMenuIcon = findViewById(R.id.drawer_menu_icon);
         contentView = findViewById(R.id.content);
+        menuPop = findViewById(R.id.menu_imgv);
 
         //Menu Hooks
         drawerLayout = findViewById(R.id.drawer_layout);
@@ -71,6 +76,33 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
         campusBuzzMvRecycler();
         clubsSocietiesRecycler();
         upcomingEventsRecycler();
+
+        menuPop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(UserDashboard.this, "You clicked", Toast.LENGTH_SHORT).show();
+                final PopupMenu popupMenu = new PopupMenu(UserDashboard.this, v);
+                popupMenu.getMenuInflater().inflate(R.menu.popmenu, popupMenu.getMenu());
+
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()){
+                            case R.id.log_out_menu:
+                                FirebaseAuth.getInstance().signOut();
+                                startActivity(new Intent(getApplicationContext(), Login.class));
+                                finish();
+                            return true;
+                            case R.id.my_profile_menu:
+                                startActivity(new Intent(getApplicationContext(), Login.class));
+                                return true;
+                        }
+                        popupMenu.show();
+                        return false;
+                    }
+                });
+            }
+        });
     }
 
     //Navigation Drawer functions
@@ -130,6 +162,9 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
                 break;
             case R.id.nav_drawer_lost_found:
                 startActivity(new Intent(this,LostFound.class));
+                break;
+            case R.id.nav_drawer_my_profile:
+                startActivity(new Intent(this,UserProfile.class));
                 break;
             case R.id.nav_drawer_log_out:
                 FirebaseAuth.getInstance().signOut();
@@ -205,10 +240,32 @@ public class UserDashboard extends AppCompatActivity implements NavigationView.O
     }
 
     public void studentportalscreen(View view) {
-        startActivity(new Intent(this, StudentPortal.class));
+//        startActivity(new Intent(this, StudentPortal.class));
+        Toast.makeText(UserDashboard.this, "You clicked", Toast.LENGTH_SHORT).show();
+        final PopupMenu popupMenu = new PopupMenu(UserDashboard.this, view);
+        popupMenu.getMenuInflater().inflate(R.menu.popmenu, popupMenu.getMenu());
+
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.log_out_menu:
+                        FirebaseAuth.getInstance().signOut();
+                        startActivity(new Intent(getApplicationContext(), Login.class));
+                        finish();
+                        return true;
+                    case R.id.my_profile_menu:
+                        startActivity(new Intent(getApplicationContext(), Login.class));
+                        return true;
+                }
+                popupMenu.show();
+                return false;
+            }
+        });
     }
 
     public void schoolwebscreen(View view) {
-        startActivity(new Intent(this, SchoolWeb.class));
+        Uri uri = Uri.parse("https://www.uoeld.ac.ke/");
+        startActivity(new Intent(Intent.ACTION_VIEW,uri));
     }
 }

@@ -118,7 +118,38 @@
                             android:inputType="textEmailAddress"
                             android:textAllCaps="false" />
                     </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.hbb20.CountryCodePicker
+                            android:layout_width="100dp"
+                            android:layout_height="match_parent"
+                            app:ccp_autoDetectCountry="true"
+                            app:ccp_showNameCode="false"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/black_border"/>
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/phone_number"
+                            app:startIconDrawable="@drawable/phone_icon"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                            app:startIconTint="@color/colorAccent"
+                            app:hintTextColor="@color/colorAccent"
+                            android:textColorHint="@color/colorAccent"
+                            app:endIconMode="clear_text"
+                            app:boxStrokeWidthFocused="2dp"
+                            app:boxStrokeColor="@color/colorAccent">
 
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/ed_phone"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:inputType="phone" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
                     <com.google.android.material.textfield.TextInputLayout
                         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
@@ -138,26 +169,6 @@
                             android:layout_height="match_parent"
                             android:inputType="textPassword" />
                     </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="@string/confirm_password"
-                        android:textColorHint="@color/colorAccent"
-                        app:boxStrokeColor="@color/colorAccent"
-                        app:boxStrokeWidthFocused="2dp"
-                        app:endIconMode="password_toggle"
-                        app:hintTextColor="@color/colorAccent"
-                        app:startIconDrawable="@drawable/password_icon"
-                        app:startIconTint="@color/colorAccent">
-
-                        <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/ed_confirm_pass"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:inputType="textPassword" />
-                    </com.google.android.material.textfield.TextInputLayout>
                 </LinearLayout>
 
                 <Button
@@ -167,7 +178,7 @@
                     android:layout_marginTop="20dp"
                     android:background="@color/colorAccent"
                     android:onClick="callNextSignUpScreen"
-                    android:text="@string/next"
+                    android:text="Register"
                     android:textAllCaps="true"
                     android:textColor="@color/whiteDark"
                     android:transitionName="transition_next_btn" />

@@ -113,7 +113,7 @@ public class AddLostItem extends AppCompatActivity {
                 && data != null && data.getData() != null){
             imageUri = data.getData();
 
-            Picasso.with(this).load(imageUri).into(imageView);
+            Picasso.get().load(imageUri).into(imageView);
         }
     }
 

@@ -21,7 +21,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Common.LoginSignUp.Disclaimer"></activity>
+        <activity android:name=".User.UserProfile"></activity>
+        <activity android:name=".Common.LoginSignUp.Disclaimer" />
         <activity android:name=".User.AddLostItem" />
         <activity android:name=".User.LostFound" />
         <activity android:name=".User.SchoolWeb" />
