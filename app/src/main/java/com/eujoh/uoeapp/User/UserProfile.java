@@ -30,7 +30,7 @@ public class UserProfile extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView( R.layout.activity_user_profile);
 
-        Name = findViewById(R.id.adm_number_tv);
+        Name = findViewById(R.id.user_name_tv);
         AdmNo = findViewById(R.id.adm_number_tv);
         Email = findViewById(R.id.email_tv);
         PhoneNo = findViewById(R.id.phone_number_tv);

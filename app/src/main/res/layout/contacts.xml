@@ -1,142 +1,304 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".User.contacts"
-    android:background="@color/whiteDark">
+    android:background="@color/cream_chep"
+    tools:context=".User.contacts">
+    <Button
+        android:id="@+id/back_pressed_contacts"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/back_icon"/>
+    <View
+        android:id="@+id/view"
+        android:layout_width="300dp"
+        android:layout_height="1dp"
+        android:layout_centerInParent="true"/>
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/ambulance_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:layout_above="@+id/view"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/brown_chep"
+        android:padding="5dp"
+        app:cardBackgroundColor="@color/brown_chep"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="15dp"
+        app:cardMaxElevation="40dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!--            <TextView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:id="@+id/security_title_txt"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_above="@+id/ambulance_circle_image"-->
+            <!--                android:text="SECURITY"-->
+            <!--                android:textColor="#fff"-->
+            <!--                android:layout_centerHorizontal="true"-->
+            <!--                android:textSize="30sp"/>-->
 
-            <ImageView
-                android:id="@+id/back_pressed_contacts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:padding="15dp"
-                android:src="@drawable/back_icon" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:padding="15dp"
-                android:src="@drawable/search_icon" />
-
-        </RelativeLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/contacts"
-            android:textSize="30sp"
-            android:fontFamily="@font/brandon_grotesque_bold"
-            android:padding="10dp"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="190dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="@drawable/card_1"
-                android:layout_margin="20dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/emergency"
-                    android:textSize="30sp"
-                    android:fontFamily="@font/brandon_grotesque_bold"
-                    android:padding="15dp"/>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="EXPAND ALL"
-                    android:padding="20dp"
-                    android:layout_alignParentBottom="true"
-                    android:background="#00000000"/>
-            </RelativeLayout>
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ambulance_circle_image"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@drawable/lost_and_found1"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="-40dp"/>
-        </RelativeLayout>
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="7dp"
+                android:src="@drawable/ambulance1"
+                app:civ_border_color="@color/cream_chep" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="@drawable/card_2"
-                android:layout_margin="20dp">
-                <ImageView
-                    android:layout_width="120dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:id="@+id/linearlayout_sec_numb"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ambulance_circle_image"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/contact_book"
-                    android:layout_alignParentLeft="true"
-                    android:layout_marginLeft="20dp"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Lecturers"
-                    android:textSize="30sp"
-                    android:fontFamily="@font/brandon_grotesque_bold"
-                    android:padding="15dp"
-                    android:layout_alignParentRight="true"/>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:text="EXPAND ALL"
-                    android:padding="20dp"
-                    android:layout_alignParentBottom="true"
-                    android:background="#00000000"/>
-            </RelativeLayout>
+                    android:orientation="horizontal">
 
+                    <TextView
+                        android:id="@+id/text_security_line1m"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="Line 1:"
+                        android:textColor="#fff"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_ambulance_line1cont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="0790868398"
+                        android:textColor="#fff"
+                        android:textSize="24sp"
+                        android:textStyle="italic" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_ambulance_line2"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="Line 2:"
+                        android:textColor="#fff"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_ambulance_line2cont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="0725995457"
+                        android:textColor="#fff"
+                        android:textSize="24sp"
+                        android:textStyle="italic" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ambulaance_line1_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ambulance_circle_image"
+                android:layout_alignParentLeft="false"
+                android:clickable="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="0dp"
+                android:layout_toRightOf="@+id/linearlayout_sec_numb"
+                android:src="@drawable/ic_call1" />
+
+            <ImageView
+                android:id="@+id/ambulance_line2_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ambulaance_line1_call"
+                android:layout_alignParentLeft="false"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="2dp"
+                android:clickable="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="0dp"
+                android:layout_toRightOf="@+id/linearlayout_sec_numb"
+                android:src="@drawable/ic_call1" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/security_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/view"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/brown_chep"
+        android:padding="5dp"
+        app:cardBackgroundColor="@color/brown_chep"
+        app:cardCornerRadius="15dp"
+        app:cardElevation="15dp"
+        app:cardMaxElevation="40dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="190dp">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="@drawable/card_3"
-                android:layout_margin="20dp">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Student Leaders"
-                    android:textSize="30sp"
-                    android:fontFamily="@font/brandon_grotesque_bold"
-                    android:padding="15dp"/>
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="EXPAND ALL"
-                    android:padding="20dp"
-                    android:layout_alignParentBottom="true"
-                    android:background="#00000000"/>
-            </RelativeLayout>
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/security_circle_image"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:src="@drawable/lost_and_found1"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/security"
+                app:civ_border_color="@color/cream_chep" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:id="@+id/linear_layout_below_security"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/security_circle_image"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_security_line1"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="Line 1:"
+                        android:textColor="#fff"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_security_line1cont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="0790868398"
+                        android:textColor="#fff"
+                        android:textSize="24sp"
+                        android:textStyle="italic" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_security_line2"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="Line 2:"
+                        android:textColor="#fff"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/text_security_line2cont"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="2dp"
+                        android:layout_marginBottom="2dp"
+                        android:text="0725995457"
+                        android:textColor="#fff"
+                        android:textSize="24sp"
+                        android:textStyle="italic" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+            <ImageView
+                android:id="@+id/security_line1_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/security_circle_image"
+                android:layout_alignParentLeft="false"
                 android:layout_alignParentRight="true"
-                android:layout_marginTop="-40dp"/>
+                android:layout_marginStart="2dp"
+                android:clickable="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="0dp"
+                android:layout_toRightOf="@+id/linear_layout_below_security"
+                android:src="@drawable/ic_call1" />
+
+            <ImageView
+                android:id="@+id/security_line2_call"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/security_line1_call"
+                android:layout_alignParentLeft="false"
+                android:clickable="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="0dp"
+                android:layout_toRightOf="@+id/linear_layout_below_security"
+                android:src="@drawable/ic_call1" />
+
+
+
         </RelativeLayout>
-
-
-    </LinearLayout>
-
-</ScrollView>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

@@ -116,7 +116,11 @@ public class SignUp extends AppCompatActivity {
             phoneNumber.setError("Enter phone Number");
             phoneNumber.requestFocus();
             return;
-        } else if (phoneNo.length() != 9 ){
+        } else if (phoneNo.length() < 9){
+            phoneNumber.setError("Enter valid phone number");
+            phoneNumber.requestFocus();
+            return;
+        } else if (phoneNo.length() > 9){
             phoneNumber.setError("Enter valid phone number");
             phoneNumber.requestFocus();
             return;
